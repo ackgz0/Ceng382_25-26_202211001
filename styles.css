@@ -11,92 +11,117 @@
 
 
 /* General Styling */
+:root {
+  --black: #010202;
+  --blue: yellow;
+  --green: red;
+  --border-width: 3px;
+  --border: solid var(--border-width) var(--black);
+}
+
+/* General Styling */
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: url("wallpaperflare.com_wallpaper.jpg");
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background: url("wallpaperflare.com_wallpaper.jpg");
+font-family: "Roboto", sans-serif;
+margin: 0;
+padding: 0;
 }
 
 /* Logo Styling */
 .one-piece {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
-  cursor: pointer;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+cursor: pointer;
 }
 
 /* Initially Hide the Login Container */
 .loginContainer {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  display: none;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  font-family: 'Pirata One', cursive;
-
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+display: none;
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+font-family: 'Pirata One', cursive;
 }
 
 .loginContainer .textLabel {
-  text-align: center;
+text-align: center;
 }
 
-/* prompt: textBox classım için korsan temalı bir css çiz. */
+/* Pirate-themed styling for text boxes */
 .loginContainer .textBox {
+font-family: 'Pirata One', cursive;
+font-size: 1.8rem;
+color: #f0e6d2; /* Old parchment color */
+background: linear-gradient(135deg, #4b3621, #6c4a2e);
+padding: 10px 15px;
+border: 2px solid #3b1f0b;
+border-radius: 5px;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+text-shadow: 1px 1px 0 #000;
+text-transform: uppercase;
+letter-spacing: 1px;
+display: inline-block;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
   font-family: 'Pirata One', cursive;
-  font-size: 1.8rem;
-  color: #f0e6d2; /* Eski parşömen rengi */
-  background: linear-gradient(135deg, #4b3621, #6c4a2e); /* Eski tahta ve pirin rengi */
-  padding: 10px 15px;
-  border: 2px solid #3b1f0b; /* Koyu kahverengi sınır */
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-  text-shadow: 1px 1px 0 #000;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
+  width: 180px;
+  height: 40px;
 }
 
 .loginContainer .sunnyGo {
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #fff;
-  background: linear-gradient(45deg, #ffcc00, #ff9900);
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+margin-top: 10px;
+text-align: center;
+font-size: 1.1rem;
+font-weight: bold;
+color: #fff;
+background: linear-gradient(45deg, #ffcc00, #ff9900);
+border: none;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+text-decoration: none;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+width: 180px;
+height: 40px;
 }
-
-
-/* prompt: "logoya tikladigimda logonun yukari kayip login containerinin gozukmesini sagla." login:target partlari icin */
 
 /* Move Logo Up When Clicked */
 #login:target ~ .one-piece {
-  transform: translate(-50%, -300px) scale(0.8);
-  opacity: 1;
-  pointer-events: none;
+transform: translate(-50%, -300px) scale(0.8);
+opacity: 1;
+pointer-events: none;
 }
 
 /* Show Login Form */
 #login:target {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
+display: block;
+opacity: 1;
+transform: translateY(0);
 }
+
+/* Logo Animations */
+
+/* (Rest of your CSS remains unchanged...) */
+
+/* Live Clock Styling */
+
+
 
 
 /* drawing from: https://codepen.io/cdmoro/pen/XWdyGdb */
@@ -443,4 +468,11 @@ a {
     transform: translate(85px);
   }
 }
-}
+
+#clock {
+  font-family: 'Pirata One', cursive;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+  }

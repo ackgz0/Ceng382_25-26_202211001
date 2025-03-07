@@ -1,83 +1,111 @@
 <html>
+  <head>
+    <title>OP Pirate Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Live Clock -->
+    <div id="clock"></div>
+    
+    <!-- Login Form (wrapped in a <form> element for toggling) -->
+    <form id="login" class="loginContainer">
+      <div class="textLabel">
+        <label>Pirate Name</label>
+      </div>
+      <div class="textBox">
+        <input type="text" placeholder="Enter your pirate name" required>
+      </div>
+      <div class="textLabel">
+        <label>Crew Name</label>
+      </div>
+      <div class="textBox">
+        <input type="text" placeholder="Enter your crew name" required>
+      </div>
+      <div class="textLabel">
+        <label>Pirate Password</label>
+      </div>
+      <div class="textBox">
+        <input type="text" placeholder="Enter your password" required>
+      </div>
+      <div class="sunnyGo">
+        <button>Sail to Grand Line!</button>
+      </div>
+    </form>
 
-    <head>
-        <title>OP Pirate Login</title>
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
-    </head>
-
-    <body>
-        
-
-        <div id="login" class="loginContainer">
-            
-            <div class="textLabel">
-                <label>Pirate Name</label>
-            </div>
-            <div class="textBox">
-                <input type="text" placeholder="Enter your pirate name" required>
-            </div>
-            <div class="textLabel">
-                <label>Crew Name</label>
-            </div>
-            <div class="textBox">
-                <input type="text" placeholder="Enter your crew name" required>
-            </div>
-            <div class="textLabel">
-                <label>Pirate Password</label>
-            </div>
-            <div class="textBox">
-                <input type="text" placeholder="Enter your password" required>
-            </div>
-            <div class="sunnyGo">
-                <button class="btn" type="submit">Sail to Grand Line!</button>
-            </div>
+    <a href="#login" class="one-piece">
+      <div class="bones">
+        <div class="bone"></div>
+        <div class="bone"></div>
+        <div class="bone"></div>
+        <div class="bone"></div>
+      </div>
+      <div class="head">
+        <div class="hat">
+          <div class="line-left"></div>
+          <div class="line-right"></div>
         </div>
+        <div class="eye"></div>
+        <div class="eye"></div>
+      </div>
+      <div class="mouth">
+        <div class="teeth"></div>
+      </div>
+    </a>
+    
+    <div class="waves back">
+      <svg viewBox="0 0 120 28" preserveAspectRatio="none">
+        <use xlink:href="#wave"></use>
+        <use xlink:href="#wave"></use>
+        <use xlink:href="#wave"></use>
+      </svg>
+    </div>
+    
+    <div class="waves front">
+      <svg viewBox="0 0 120 28" preserveAspectRatio="none">
+        <use xlink:href="#wave"></use>
+        <use xlink:href="#wave"></use>
+        <use xlink:href="#wave"></use>
+      </svg>
+    </div>
+    
+    <!-- SVG definition for wave shape -->
+    <svg style="display: none;">
+      <symbol id="wave" viewBox="0 0 120 28">
+        <path d="M0 0 Q30 20 60 0 T120 0 V28 H0z"></path>
+      </symbol>
+    </svg>
+    
+    <!-- JavaScript for live clock and form toggle -->
+    <script>
+      // Live clock functionality
+      function updateClock() {
+        const clockEl = document.getElementById('clock');
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        // Format with leading zeros
+        hours = hours < 10 ? '0' + hours : hours;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        clockEl.textContent = hours + ':' + minutes + ':' + seconds;
+      }
+      // Update every second
+      setInterval(updateClock, 1000);
+      updateClock();
 
-        <a href="#login" class="one-piece">
-            <div class="bones">
-              <div class="bone"></div>
-              <div class="bone"></div>
-              <div class="bone"></div>
-              <div class="bone"></div>
-            </div>
-            <div class="head">
-              <div class="hat">
-                <div class="line-left"></div>
-                <div class="line-right"></div>
-              </div>
-              <div class="eye"></div>
-              <div class="eye"></div>
-            </div>
-            <div class="mouth">
-              <div class="teeth"></div>
-            </div>
-          </div>
-        </a>
-        
-        <div class="waves back">
-            <svg viewBox="0 0 120 28" preserveAspectRatio="none">
-              <use xlink:href="#wave"></use>
-              <use xlink:href="#wave"></use>
-              <use xlink:href="#wave"></use>
-            </svg>
-          </div>
-        
-          <div class="waves front">
-            <svg viewBox="0 0 120 28" preserveAspectRatio="none">
-              <use xlink:href="#wave"></use>
-              <use xlink:href="#wave"></use>
-              <use xlink:href="#wave"></use>
-            </svg>
-          </div>
-        
-          <!-- SVG sembol tanımı: Dalga şekli -->
-          <svg style="display: none;">
-            <symbol id="wave" viewBox="0 0 120 28">
-              <path d="M0 0 Q30 20 60 0 T120 0 V28 H0z"></path>
-            </symbol>
-          </svg>
-        
-    </body>
-
+      // Toggle form visibility when 'H' key is pressed
+      let formsVisible = true;
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'H' || e.key === 'h') {
+          const forms = document.querySelectorAll('form');
+          forms.forEach(form => {
+            form.style.display = formsVisible ? 'none' : '';
+          });
+          formsVisible = !formsVisible;
+        }
+      });
+    </script>
+  </body>
 </html>

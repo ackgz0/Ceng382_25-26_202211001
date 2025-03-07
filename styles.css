@@ -1,0 +1,446 @@
+
+
+:root {
+    --black: #010202;
+    --blue: yellow;
+    --green: red;
+    --border-width: 3px;
+    --border: solid var(--border-width) var(--black);
+}
+
+
+
+/* General Styling */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url("wallpaperflare.com_wallpaper.jpg");
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo Styling */
+.one-piece {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+/* Initially Hide the Login Container */
+.loginContainer {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  display: none;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Pirata One', cursive;
+
+}
+
+.loginContainer .textLabel {
+  text-align: center;
+}
+
+/* prompt: textBox classım için korsan temalı bir css çiz. */
+.loginContainer .textBox {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.8rem;
+  color: #f0e6d2; /* Eski parşömen rengi */
+  background: linear-gradient(135deg, #4b3621, #6c4a2e); /* Eski tahta ve pirin rengi */
+  padding: 10px 15px;
+  border: 2px solid #3b1f0b; /* Koyu kahverengi sınır */
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 0 #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.loginContainer .sunnyGo {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+
+/* prompt: "logoya tikladigimda logonun yukari kayip login containerinin gozukmesini sagla." login:target partlari icin */
+
+/* Move Logo Up When Clicked */
+#login:target ~ .one-piece {
+  transform: translate(-50%, -300px) scale(0.8);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Show Login Form */
+#login:target {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* drawing from: https://codepen.io/cdmoro/pen/XWdyGdb */
+
+
+/* prompt: logomun animasyonu sağ alta doğruydu, ortada büyüyüp küçülen bi animasyon istedim  ve hover'da küçük bir düzenleme yaptım*/
+.one-piece:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.one-piece .hat {
+  width: 100px;
+  height: 100px;
+  border: var(--border);
+  background: var(--blue);
+  border-radius: 50%;
+  clip-path: inset(0 0 50% 0);
+  position: absolute;
+  overflow: hidden;
+  top: -3px;
+}
+
+.one-piece .hat::after {
+  content: "";
+  height: 12px;
+  width: 110%;
+  border: var(--border);
+  background: var(--green);
+  position: absolute;
+  top: 36%;
+  transform: translatey(-50%);
+  left: -10px;
+}
+
+.one-piece .hat .line-left {
+  position: absolute;
+  border-left: var(--border);
+  height: 13px;
+  left: 28px;
+  top: 13px;
+  border-radius: 50%;
+  width: 5px;
+  transform: rotate(34deg);
+}
+
+.one-piece .hat .line-left::before {
+  content: "";
+  position: absolute;
+  border-left: var(--border);
+  height: 17px;
+  left: -10px;
+  top: 1px;
+  border-radius: 50%;
+  width: 5px;
+  transform: rotate(0deg);
+}
+
+.one-piece .hat .line-left::after {
+  content: "";
+  position: absolute;
+  border-left: var(--border);
+  height: 9px;
+  left: 5px;
+  top: -3px;
+  border-radius: 50%;
+  width: 3px;
+  transform: rotate(-9deg);
+}
+
+.one-piece .hat .line-right {
+  position: absolute;
+  border-right: var(--border);
+  height: 15px;
+  right: 22px;
+  top: 11px;
+  border-radius: 50%;
+  width: 5px;
+  transform: rotate(-30deg);
+}
+
+.one-piece .hat .line-right::before {
+  content: "";
+  position: absolute;
+  border-right: var(--border);
+  height: 9px;
+  right: 7px;
+  top: 0px;
+  border-radius: 50%;
+  width: 4px;
+  transform: rotate(11deg);
+}
+
+.one-piece .head::before {
+  content: "";
+  height: 5px;
+  width: 150px;
+  border: var(--border);
+  background: var(--blue);
+  position: absolute;
+  top: 50%;
+  transform: translatey(-8px);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.one-piece .head::after {
+  content: "";
+  width: 11px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--black);
+  position: absolute;
+  bottom: 8px;
+}
+
+.one-piece .head {
+  width: 100px;
+  height: calc(100px - 0.9rem);
+  border: var(--border);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 0.9rem;
+  position: relative;
+  background: #fff;
+}
+
+.one-piece .eye {
+  width: 28px;
+  height: 28px;
+  background: var(--black);
+  border-radius: 50%;
+  margin: 0 0.35rem;
+}
+
+.one-piece .bone {
+  height: 13px;
+  width: 50px;
+  border: var(--border);
+  border-left: none;
+  z-index: -1;
+  position: absolute;
+  background: #fff;
+}
+
+.one-piece .bone::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  border: var(--border);
+  border-radius: 50%;
+  left: -1px;
+  top: 1px;
+  position: absolute;
+  background: #fff;
+  transform: translatex(-18px) translatey(2px) rotate(-90deg);
+  clip-path: polygon(50% 100%, 0 100%, 0 0, 100% 0, 100% 25%, 50% 50%);
+}
+
+.one-piece .bone::before {
+  content: "";
+  height: 15px;
+  width: 15px;
+  border: var(--border);
+  border-radius: 50%;
+  left: -1px;
+  top: 1px;
+  position: absolute;
+  background: #fff;
+  transform: translatex(-18px) translatey(-13px);
+  clip-path: polygon(25% 100%, 0 100%, 0 0, 100% 0, 100% 50%, 50% 50%);
+}
+
+.one-piece .bone:nth-child(1) {
+  transform: rotate(42deg);
+  top: 23px;
+  left: -26px;
+  background: #fff;
+}
+
+.one-piece .bone:nth-child(2) {
+  transform: rotate(137deg);
+  top: 23px;
+  right: -26px;
+  background: #fff;
+}
+
+.one-piece .bone:nth-child(3) {
+  transform: rotate(313deg);
+  bottom: -13px;
+  left: 0px;
+  background: #fff;
+}
+
+.one-piece .bone:nth-child(4) {
+  transform: rotate(227deg);
+  bottom: -13px;
+  right: 0px;
+  background: #fff;
+}
+
+.one-piece .mouth {
+  position: absolute;
+  height: 120px;
+  width: 55px;
+  border: var(--border);
+  margin: 0 auto;
+  border-radius: 50%;
+  transform: rotatex(60deg) translatex(-50%);
+  left: 50%;
+  top: 55px;
+  z-index: -1;
+  border-width: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.one-piece .mouth::before,
+.one-piece .mouth::after {
+  content: "";
+  width: 70px;
+  height: 100px;
+  border: var(--border);
+  position: absolute;
+  border-radius: 50%;
+  transform: rotatex(0deg) translatex(-50%);
+  left: 50%;
+  border-width: 5px;
+}
+
+.one-piece .mouth::before {
+  top: -52px;
+}
+
+.one-piece .mouth::after {
+  top: -30px;
+}
+
+.one-piece .mouth .teeth {
+  position: absolute;
+  left: 50%;
+  width: var(--border-width);
+  height: 46px;
+  background: var(--black);
+  top: 30px;
+  transform: translatex(-50%);
+}
+
+.one-piece .mouth .teeth::after,
+.one-piece .mouth .teeth::before {
+  background: var(--black);
+  position: absolute;
+  height: 46px;
+  width: var(--border-width);
+  content: "";
+}
+
+.one-piece .mouth .teeth::after {
+  transform: translatex(-14px) rotate(3deg);
+}
+
+.one-piece .mouth .teeth::before {
+  transform: translatex(14px) rotate(-3deg);
+}
+
+h1 {
+  margin-top: 4.5rem;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: yellow;
+}
+
+.links a + a {
+  margin-left: 1rem;
+}
+
+.author {
+  margin-top: 1rem;
+}
+
+.author code {
+  color: tomato;
+  font-weight: bold;
+}
+
+/* url for waves: https://codepen.io/juliamitchelmore/pen/qBBOLer */
+.waves {
+  position: fixed;
+  bottom: 0; /* Alt kısımda sabit */
+  left: 0;
+  height: 5vh; /* Dalga yüksekliğini azaltıyoruz */
+  width: 100%;
+  overflow: hidden; /* Taşan kısımları gizle */
+}
+
+.waves svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.waves use {
+  animation: wavewave 5s cubic-bezier(.55, .5, .45, .5) infinite;
+  fill: dodgerblue;
+  opacity: 0.7;
+}
+
+.waves.back {
+  z-index: 1;
+}
+
+.waves.back use:nth-child(2) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.waves.back use:nth-child(3) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+.waves.front {
+  z-index: 3;
+}
+
+.waves.front use:nth-child(2) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.waves.front use:nth-child(3) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+@keyframes wavewave {
+  0% {
+    transform: translate(-90px);
+  }
+  100% {
+    transform: translate(85px);
+  }
+}
+}

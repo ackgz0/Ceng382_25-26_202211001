@@ -8,7 +8,7 @@
     <!-- Live Clock -->
     <div id="clock"></div>
     
-    <!-- Login Form (wrapped in a <form> element for toggling) -->
+    
     <form id="login" class="loginContainer">
       <div class="textLabel">
         <label>Pirate Name</label>
@@ -69,14 +69,14 @@
       </svg>
     </div>
     
-    <!-- SVG definition for wave shape -->
+    <!-- wanted a code for my wave css -->
     <svg style="display: none;">
       <symbol id="wave" viewBox="0 0 120 28">
         <path d="M0 0 Q30 20 60 0 T120 0 V28 H0z"></path>
       </symbol>
     </svg>
     
-    <!-- JavaScript for live clock and form toggle -->
+    <!-- prompt for JavaScript for live clock -->
     <script>
       // Live clock functionality
       function updateClock() {
@@ -95,7 +95,7 @@
       setInterval(updateClock, 1000);
       updateClock();
 
-      // Toggle form visibility when 'H' key is pressed
+      // prompt: Write me a toggle form visibility when 'H' key is pressed in javascript
       let formsVisible = true;
       document.addEventListener('keydown', function(e) {
         if (e.key === 'H' || e.key === 'h') {

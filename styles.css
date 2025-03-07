@@ -9,17 +9,6 @@
 }
 
 
-
-/* General Styling */
-:root {
-  --black: #010202;
-  --blue: yellow;
-  --green: red;
-  --border-width: 3px;
-  --border: solid var(--border-width) var(--black);
-}
-
-/* General Styling */
 body {
 display: flex;
 flex-direction: column;
@@ -32,7 +21,7 @@ margin: 0;
 padding: 0;
 }
 
-/* Logo Styling */
+
 .one-piece {
 position: absolute;
 top: 50%;
@@ -42,7 +31,7 @@ transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
 cursor: pointer;
 }
 
-/* Initially Hide the Login Container */
+
 .loginContainer {
 opacity: 0;
 transform: translateY(50px);
@@ -59,11 +48,11 @@ font-family: 'Pirata One', cursive;
 text-align: center;
 }
 
-/* Pirate-themed styling for text boxes */
+
 .loginContainer .textBox {
 font-family: 'Pirata One', cursive;
 font-size: 1.8rem;
-color: #f0e6d2; /* Old parchment color */
+color: #f0e6d2; 
 background: linear-gradient(135deg, #4b3621, #6c4a2e);
 padding: 10px 15px;
 border: 2px solid #3b1f0b;
@@ -101,14 +90,13 @@ width: 180px;
 height: 40px;
 }
 
-/* Move Logo Up When Clicked */
+
 #login:target ~ .one-piece {
 transform: translate(-50%, -300px) scale(0.8);
 opacity: 1;
 pointer-events: none;
 }
 
-/* Show Login Form */
 #login:target {
 display: block;
 opacity: 1;
@@ -119,7 +107,7 @@ transform: translateY(0);
 
 /* (Rest of your CSS remains unchanged...) */
 
-/* Live Clock Styling */
+
 
 
 
@@ -468,6 +456,8 @@ a {
     transform: translate(85px);
   }
 }
+
+/* Prompt: Make me a Live Clock Styling */
 
 #clock {
   font-family: 'Pirata One', cursive;

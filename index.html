@@ -14,22 +14,22 @@
         <label>Pirate Name</label>
       </div>
       <div class="textBox">
-        <input type="text" placeholder="Enter your pirate name" required>
+        <input type="text" id="username" placeholder="Enter your pirate name" required>
       </div>
       <div class="textLabel">
         <label>Crew Name</label>
       </div>
       <div class="textBox">
-        <input type="text" placeholder="Enter your crew name" required>
+        <input type="text" id="crewname" placeholder="Enter your crew name" required>
       </div>
       <div class="textLabel">
         <label>Pirate Password</label>
       </div>
       <div class="textBox">
-        <input type="text" placeholder="Enter your password" required>
+        <input type="password" id="password" placeholder="Enter your password" required>
       </div>
       <div class="sunnyGo">
-        <button>Sail to Grand Line!</button>
+        <button class="btn" type="submit">Sail to Grand Line!</button>
       </div>
     </form>
 
@@ -76,7 +76,6 @@
       </symbol>
     </svg>
     
-    <!-- prompt for JavaScript for live clock -->
     <script>
       // Live clock functionality
       function updateClock() {
@@ -105,6 +104,24 @@
           });
           formsVisible = !formsVisible;
         }
+      });
+    
+      let loginAttempts = [];
+
+      document.getElementById('login').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        
+        let username = document.getElementById('username').value;
+        let crewname = document.getElementById('crewname').value;
+        let password = document.getElementById('password').value;
+        
+        loginAttempts.push({ username, crewname, password });
+        
+        console.log("Login Attempts:", loginAttempts);
+        
+        document.getElementById('username').value = '';
+        document.getElementById('crewname').value = '';
+        document.getElementById('password').value = '';
       });
     </script>
   </body>
